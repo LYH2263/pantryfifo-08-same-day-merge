@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>{{ props.layer }} 层</h1>
-    <span v-for="x in rows" :key="x.id" class="lot">{{ x.name }} ×{{ x.qty_remain }} · {{ x.expiry }}</span>
+    <span v-for="x in rows" :key="x.id" class="lot">
+      #{{ x.id }} {{ x.name }} ×{{ x.qty_remain }} · {{ x.expiry }}
+      <em v-if="x.data_quality === 'dirty'" class="dirty">脏批</em>
+    </span>
   </div>
 </template>
 <script setup>
